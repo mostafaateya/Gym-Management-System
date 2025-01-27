@@ -29,8 +29,8 @@ build_exe_options = {
 }
 
 base = None
-#if sys.platform == "win32":
-#    base = "Win32GUI"  # Use this option if you want to hide the console window
+if sys.platform == "win32":
+    base = "Win32GUI"  # Use this option if you want to hide the console window
 
 executables = [Executable("gym.py", base=base)]
 
