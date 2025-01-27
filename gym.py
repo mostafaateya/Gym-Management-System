@@ -4,6 +4,7 @@ from tkinter import messagebox, simpledialog, ttk
 from PIL import Image, ImageTk
 from tkcalendar import DateEntry
 import os
+import sys
 import io
 import shutil
 import sqlite3
@@ -118,6 +119,9 @@ class MainApp(ctk.CTk):
 
         # load images with light and dark mode image
         image_path=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/test_images")
+
+        print("Image path:", image_path)
+
         self.logo_image=ctk.CTkImage(
             light_image=Image.open(os.path.join(image_path, "gym_dark.png")),
             dark_image=Image.open(os.path.join(image_path, "gym_dark.png")),
