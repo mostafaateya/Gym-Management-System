@@ -118,9 +118,18 @@ class MainApp(ctk.CTk):
         self.grid_columnconfigure(1, weight=1)
 
         # load images with light and dark mode image
-        image_path=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/test_images")
+#        image_path=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/test_images")
 
-        print("Image path:", image_path)
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        image_path = os.path.join(base_path, "templates/test_images")
 
         self.logo_image=ctk.CTkImage(
             light_image=Image.open(os.path.join(image_path, "gym_dark.png")),
@@ -704,7 +713,18 @@ def create_gym_membership_frame(frame_2):
     button_height=300
 
     # Define the path to the directory containing your image files
-    frame_2_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_2_icons")
+#    frame_2_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_2_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_2_icons = os.path.join(base_path, "templates/frame_2_icons")
 
     # Load and resize the images
     register_image=Image.open(os.path.join(frame_2_icons, 'register_black.png'))
