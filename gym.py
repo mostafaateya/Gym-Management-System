@@ -1940,7 +1940,18 @@ def create_take_attendance_frame(frame_3):
     button_height=300
 
     # Define the path to the directory containing your image files
-    frame_3_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_3_icons")
+#    frame_3_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_3_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_3_icons = os.path.join(base_path, "templates/frame_3_icons")
 
     # Load and resize the images
     register_image=Image.open(os.path.join(frame_3_icons, 'scan_black.png'))
@@ -2002,7 +2013,18 @@ class ScanFrame(ctk.CTkFrame):
         button_height=200
 
         # Define the path to the directory containing your image files
-        frame_3_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_3_icons")
+#        frame_3_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_3_icons")
+
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        frame_3_icons = os.path.join(base_path, "templates/frame_3_icons")
 
         # Load and resize the images
         time_in_image=Image.open(os.path.join(frame_3_icons, 'time_in.png'))
@@ -2374,7 +2396,18 @@ def create_gym_equipment_frame(frame_4):
     button_height=300
 
     # Define the path to the directory containing your image files
-    frame_4_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_4_icons")
+#    frame_4_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_4_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_4_icons = os.path.join(base_path, "templates/frame_4_icons")
 
     # Load and resize the images
     register_image=Image.open(os.path.join(frame_4_icons, 'dumbell_dark.png'))
@@ -3002,7 +3035,18 @@ def create_trainers_frame(frame_5):
     button_height=250
 
     # Define the path to the directory containing your image files
-    frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+#    frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_5_icons = os.path.join(base_path, "templates/frame_5_icons")
 
     # Load and resize the images
     register_image=Image.open(os.path.join(frame_5_icons, 'trainer_black.png'))
@@ -3837,7 +3881,18 @@ class TrainerAttendanceFrame(ctk.CTkFrame):
         button_height=200
 
         # Define the path to the directory containing your image files
-        frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+#        frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        frame_5_icons = os.path.join(base_path, "templates/frame_5_icons")
 
         # Load and resize the images
         scan_image=Image.open(os.path.join(frame_5_icons, 'scan_black.png'))
@@ -3876,7 +3931,8 @@ class TrainerAttendanceFrame(ctk.CTkFrame):
         # create a back button to return to the previous frame
         back_button=ctk.CTkButton(self, text="Back", fg_color="Red", text_color=("gray10", "gray90"),
                                   hover_color=("red3", "red4"), command=self.back_button_event)
-        back_button.place(x=450, y=550)
+#        back_button.place(x=450, y=550)
+        back_button.place(x=465, y=550)
 
     def take_attendance(self):
         # When the "Take Attendance" button is clicked, create and show the ScanQrFrame
@@ -3900,7 +3956,18 @@ class ScanQrFrame(ctk.CTkFrame):
         button_height=200
 
         # Define the path to the directory containing your image files
-        frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+#        frame_5_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_5_icons")
+
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        frame_5_icons = os.path.join(base_path, "templates/frame_5_icons")
 
         # Load and resize the images
         time_in_image=Image.open(os.path.join(frame_5_icons, 'time_in.png'))
@@ -3939,7 +4006,8 @@ class ScanQrFrame(ctk.CTkFrame):
         # create a back button to return to the previous frame
         back_button=ctk.CTkButton(self, text="Back", fg_color="Red", text_color=("gray10", "gray90"),
                                   hover_color=("red3", "red4"), command=self.back_button_event)
-        back_button.pack(pady=20, side=tk.BOTTOM)
+#        back_button.pack(pady=20, side=tk.BOTTOM)
+        back_button.place(x=465, y=550)
 
     def scan_qr_code_time_in(self):
         qr_code_data=self.scan_qr_code()
@@ -4181,7 +4249,18 @@ def create_visitors_frame(frame_6):
     button_height=350
 
     # Define the path to the directory containing your image files
-    frame_6_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_6_icons")
+#    frame_6_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_6_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_6_icons = os.path.join(base_path, "templates/frame_6_icons")
 
     # Load and resize the images
     logbook_image=Image.open(os.path.join(frame_6_icons, 'logbook_black.png'))
@@ -4628,7 +4707,18 @@ def create_employee_frame(frame_7):
     button_height=250
 
     # Define the path to the directory containing your image files
-    frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+#    frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+
+    # For cx_Freeze, use sys.executable to get the correct base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # If the application is run from a Python interpreter
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Now construct the correct path to your images
+    frame_7_icons = os.path.join(base_path, "templates/frame_7_icons")
 
     # Load and resize the images
     register_image=Image.open(os.path.join(frame_7_icons, 'register_black.png'))
@@ -5476,7 +5566,18 @@ class EmployeeAttendanceFrame(ctk.CTkFrame):
         button_height=200
 
         # Define the path to the directory containing your image files
-        frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+#        frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        frame_7_icons = os.path.join(base_path, "templates/frame_7_icons")
 
         # Load and resize the images
         scan_image=Image.open(os.path.join(frame_7_icons, 'scan_black.png'))
@@ -5515,7 +5616,8 @@ class EmployeeAttendanceFrame(ctk.CTkFrame):
         # create a back button to return to the previous frame
         back_button=ctk.CTkButton(self, text="Back", fg_color="Red", text_color=("gray10", "gray90"),
                                   hover_color=("red3", "red4"), command=self.back_button_event)
-        back_button.place(x=450, y=550)
+#        back_button.place(x=450, y=550)
+        back_button.place(x=465, y=550)
 
     def take_attendance(self):
         # When the "Register Members" button is clicked, create and show the registration frame
@@ -5543,7 +5645,18 @@ class EmployeeScanQrFrame(ctk.CTkFrame):
         self.pack(fill='both', expand=True)
 
         # Define the path to the directory containing your image files
-        frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+#        frame_7_icons=os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates/frame_7_icons")
+
+        # For cx_Freeze, use sys.executable to get the correct base directory
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # If the application is run from a Python interpreter
+            base_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Now construct the correct path to your images
+        frame_7_icons = os.path.join(base_path, "templates/frame_7_icons")
 
         # Load and resize the images
         time_in_image=Image.open(os.path.join(frame_7_icons, 'time_in.png'))
@@ -5582,7 +5695,8 @@ class EmployeeScanQrFrame(ctk.CTkFrame):
         # create a back button to return to the previous frame
         back_button=ctk.CTkButton(self, text="Back", fg_color="Red", text_color=("gray10", "gray90"),
                                   hover_color=("red3", "red4"), command=self.back_button_event)
-        back_button.pack(pady=20, side=tk.BOTTOM)
+#        back_button.pack(pady=20, side=tk.BOTTOM)
+        back_button.place(x=465, y=550)
 
     def scan_qr_code_time_in(self):
         qr_code_data=self.scan_qr_code()
